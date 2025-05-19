@@ -1,0 +1,54 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+
+@using VillaMVC.Models
+@model Villa
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Villa Table</h6>
+                
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Place</th>
+                            <th scope="col">Bedrooms</th>
+                            <th scope="col">Bathrooms</th>
+                            <th scope="col">Area</th>
+                            <th scope="col">Parking</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                            <tr>
+                                <th scope="row">@Model.Id</th>
+                            <td><img src="~/assets/uploadedImages/@Model.ImgPath" alt=""></td>
+                                <td>@Model.CategoryName</td>
+                                <td>@Model.Price</td>
+                                <td>@Model.Place</td>
+                                <td>@Model.Bedrooms</td>
+                                <td>@Model.Bathrooms</td>
+                                <td>@Model.Area</td>
+                                <td>@Model.Parking</td>
+
+                               
+
+                            </tr>
+                        
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Table End -->

@@ -1,0 +1,63 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+
+
+@using VillaMVC.Models
+@model List<Villa>
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h6 class="mb-4">Villa Table</h6>
+                 <a asp-area="Admin" asp-controller="Villa" asp-action="Create" method="post">Create</a>
+               
+                <table class="table"> 
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Category Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Place</th>
+                            <th scope="col">Bedrooms</th>
+                            <th scope="col">Bathrooms</th>
+                            <th scope="col">Area</th>
+                            <th scope="col">Parking</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Villa item in Model)
+                        {
+                            <tr>
+                                <th scope="row">@item.Id</th>
+                                <td><img src="~/assets/uploadedImages/@item.ImgPath" alt=""></td>
+                                <td>@item.CategoryName</td>
+                                <td>@item.Price</td>
+                                <td>@item.Place</td>
+                                <td>@item.Bedrooms</td>
+                                <td>@item.Bathrooms</td>
+                                <td>@item.Area</td>
+                                <td>@item.Parking</td>
+
+                                <td>
+
+                                    <a asp-area="Admin" asp-controller="Villa" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                                    <a asp-area="Admin" asp-controller="Villa" asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning">Update</a>
+                                    <a asp-area="Admin" asp-controller="Villa" asp-action="Info" asp-route-id="@item.Id" class="btn btn-info">Info</a>
+
+                                </td>
+
+                            </tr>
+                            
+                        }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <!-- Table End -->
+           
